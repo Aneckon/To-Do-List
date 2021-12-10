@@ -5,12 +5,14 @@ function AddPost() {
     return
   }
 
-  document.getElementById('list').innerHTML =
-    document.getElementById('list').innerHTML + `<li>${val}
-    <button onclick="RemovePost()"><img src="remove.png" alt=""></button>
-  </li>`
+  let elem = document.createElement("li");
+  elem.innerHTML = val + `
+    <button onclick="DeletePost()"><img src="remove.png" alt="" /></button>
+  `;
+  document.getElementById("list").appendChild(elem);
 }
 
-function RemovePost() {
-  document.getElementById('list').innerHTML = ``
+function DeletePost() {
+  let target = event.target.closest('li');
+  target.remove();
 }
