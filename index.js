@@ -1,10 +1,16 @@
 function AddPost() {
   let val = document.getElementById('input').value;
-  document.getElementById('list').innerHTML = val + `<li>
-    <button id="buttin__remove" onclick="RemovePost()"><img src="remove.png" alt=""></button>
+
+  if (!val.trim().length) {
+    return
+  }
+
+  document.getElementById('list').innerHTML =
+    document.getElementById('list').innerHTML + `<li>${val}
+    <button onclick="RemovePost()"><img src="remove.png" alt=""></button>
   </li>`
 }
 
-function RemovePost(params) {
+function RemovePost() {
   document.getElementById('list').innerHTML = ``
 }
